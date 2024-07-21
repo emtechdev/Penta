@@ -1,20 +1,19 @@
-
-import { useEffect, useState } from 'react';
 import './App.css'
 import Login from './Components/Login'
-import Navbar from './Components/Navbar'
+import CreateUser from './Components/CreateUser';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'EN');
-
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
 
   return (
     <>
-    <Navbar language={language} setLanguage={setLanguage}/>
-    <Login />
+    
+    <Router>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path="/create_user" element={<CreateUser />} />
+      </Routes>
+    </Router>
     </>
   )
 }
