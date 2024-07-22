@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import logo from '../assets/logo.jfif'
+import logo from '../assets/logo.png'
 import image from '../assets/language.jpeg'
 
 function classNames(...classes) {
@@ -17,10 +17,18 @@ const navigation = [
 
 export default function Navbar() {
     return (
-        <Disclosure as="nav" className="bg-blue-500">
+        <Disclosure as="nav" className="bg-gray-300">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
-                    <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <div className="flex flex-shrink-0 items-center">
+                            <img
+                                alt="Logo"
+                                src={logo}
+                                className="w-auto h-40"
+                            />
+                        </div>
+                        <div className={`flex flex-1 items-center justify-center `}>
+                    <div className="absolute inset-y-0 flex items-center md:hidden">
                         {/* Mobile menu button*/}
                         <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                             <span className="absolute -inset-0.5" />
@@ -29,23 +37,17 @@ export default function Navbar() {
                             <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
                         </DisclosureButton>
                     </div>
-                    <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="flex flex-shrink-0 items-center">
-                            <img
-                                alt="Your Company"
-                                src={logo}
-                                className="h-8 w-auto"
-                            />
-                        </div>
-                        <div className="hidden sm:ml-6 sm:block">
-                            <div className="flex space-x-4">
+                    <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
+                       
+                        <div className="hidden md:block">
+                            <div className="flex gap-2">
                                 {navigation.map((item) => (
                                     <a
                                         key={item.name}
                                         href={item.href}
                                         aria-current={item.current ? 'page' : undefined}
                                         className={classNames(
-                                            item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                                            item.current ? 'bg-gray-700 text-white' : 'text-black hover:bg-gray-700 hover:text-white',
                                             'rounded-md px-3 py-2 text-sm font-medium',
                                         )}
                                     >
@@ -55,13 +57,14 @@ export default function Navbar() {
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
 
                         {/* Profile dropdown */}
                         <Menu as="div" className="relative ml-3">
                             <div className="flex items-center gap-3">
-                                <div className="text-white font-bold">EN</div>
+                                <div className="text-black font-bold">EN</div>
                                 <MenuButton className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                     <span className="sr-only">Open user menu</span>
                                     <img
@@ -91,7 +94,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-            <DisclosurePanel className="sm:hidden">
+            <DisclosurePanel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {navigation.map((item) => (
                         <DisclosureButton
@@ -100,7 +103,7 @@ export default function Navbar() {
                             href={item.href}
                             aria-current={item.current ? 'page' : undefined}
                             className={classNames(
-                                item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                                item.current ? 'bg-gray-700 text-white' : 'text-black hover:bg-gray-700 hover:text-white',
                                 'block rounded-md px-3 py-2 text-base font-medium',
                             )}
                         >
