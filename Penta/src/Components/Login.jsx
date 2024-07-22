@@ -1,7 +1,9 @@
 import React from 'react'
 import Navbar_login from './Navbar_login'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+    const navigate = useNavigate();
     return (
         <div className=''>
             <Navbar_login />
@@ -32,7 +34,7 @@ function Login() {
                                     <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray" type='password' required />
                                 </div>
                                 <div className="flex justify-center">
-                                    <button className="bg-custom-blue hover:bg-custom-primary-dark text-white rounded-lg px-3 py-2">
+                                    <button className="bg-custom-blue hover:bg-custom-primary-dark text-white rounded-lg px-3 py-2" onClick={() => navigate('/home')}>
                                         Login
                                     </button>
                                 </div>

@@ -6,6 +6,7 @@ import Users from './Components/Users';
 import { useEffect, useState } from 'react';
 import AddTasks from './Components/AddTasks/AddTasks';
 import CreateTasks from './Components/CreateTasks';
+import Home from './Components/Home';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -32,6 +33,7 @@ function App() {
         <Route path='/users' element={<Users users={users} setUsers={setUsers} setEditUser={setEditUser}/>} />
         <Route path='/addtasks' element={<AddTasks/>}></Route>
         <Route path='/createtasks' element={<CreateTasks/>}></Route>
+        <Route path='/home' element={<Home/>}></Route>
 
       </Routes>
     </Router>
